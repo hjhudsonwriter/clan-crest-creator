@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Scarlett Isles • Clan Crest Creator</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <img class="brandLogo" src="./assets/logo.png" alt="The Scarlett Isles" />
+      <div class="brandText">
+        <div class="brandKicker">Scarlett Isles</div>
+        <div class="brandTitle">Clan Crest Creator</div>
+      </div>
+    </div>
+
+    <div class="nameRow">
+      <label class="srOnly" for="clanName">Clan/Party Name</label>
+      <input id="clanName" class="nameInput" type="text" placeholder="Type your Clan/Party name…" maxlength="40" />
+      <button id="btnRandomName" class="btn btnGhost" type="button" title="Random name">🎲 Name</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel">
+      <div class="panelHead">
+        <h1 class="panelTitle">Forge your heraldry</h1>
+        <div class="panelSub">Pick parts, roll random, then download a transparent PNG.</div>
+      </div>
+
+      <div class="grid">
+        <!-- LEFT: Controls -->
+        <aside class="controls">
+          <div class="block">
+            <div class="blockTitle">Shield</div>
+            <div class="row">
+              <label for="shieldShape">Shape</label>
+              <select id="shieldShape"></select>
+            </div>
+            <div class="row">
+              <label for="borderStyle">Border</label>
+              <select id="borderStyle"></select>
+            </div>
+            <div class="row">
+              <label for="borderWidth">Border width</label>
+              <input id="borderWidth" type="range" min="4" max="22" value="12" />
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="blockTitle">Background</div>
+            <div class="row">
+              <label for="patternType">Pattern</label>
+              <select id="patternType"></select>
+            </div>
+            <div class="row">
+              <label for="palette">Palette</label>
+              <select id="palette"></select>
+            </div>
+            <div class="row">
+              <label for="texture">Texture</label>
+              <select id="texture"></select>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="blockTitle">Sigil</div>
+            <div class="row">
+              <label for="sigilType">Icon</label>
+              <select id="sigilType"></select>
+            </div>
+            <div class="row">
+              <label for="sigilScale">Size</label>
+              <input id="sigilScale" type="range" min="50" max="140" value="105" />
+            </div>
+            <div class="row">
+              <label for="sigilFillMode">Icon style</label>
+              <select id="sigilFillMode">
+                <option value="solid">Solid</option>
+                <option value="outline">Outline</option>
+                <option value="twoTone">Two-tone</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="blockTitle">Banner</div>
+            <div class="row">
+              <label for="bannerStyle">Banner</label>
+              <select id="bannerStyle"></select>
+            </div>
+            <div class="row">
+              <label for="bannerText">Text</label>
+              <input id="bannerText" type="text" placeholder="Optional motto…" maxlength="26" />
+            </div>
+          </div>
+
+          <div class="btnRow">
+            <button id="btnRandomAll" class="btn" type="button">🎲 Random Crest</button>
+            <button id="btnReset" class="btn btnGhost" type="button">Reset</button>
+          </div>
+        </aside>
+
+        <!-- RIGHT: Preview -->
+        <section class="preview">
+          <div class="previewFrame">
+            <div id="svgHost" class="svgHost" aria-label="Crest preview"></div>
+          </div>
+
+          <div class="actions">
+            <button id="btnDownload" class="btn btnBig" type="button">⬇ Download PNG (transparent)</button>
+            <div class="hint">Saved as: <span id="fileNameHint" class="mono">Clan_Crest.png</span></div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="foot">
+        <div class="smallMuted">Tip: if your download looks “soft”, increase border width and avoid tiny details.</div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
