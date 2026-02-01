@@ -560,6 +560,7 @@
   }
 
   // ---------- Banner ----------
+    // ---------- Banner ----------
   function renderBanner(st, palette){
     const style = st.bannerStyle;
     const text = (st.bannerText || "").trim();
@@ -567,54 +568,59 @@
 
     const fill = "rgba(10,8,8,0.65)";
     const stroke = palette.b;
-    const x = 280, y = 820, w = 464, h = 120;
 
+    const x = 280, y = 820, w = 464, h = 120;
     const safe = escapeHtml(text.toUpperCase());
 
     if(style === "ribbon"){
-      return `
-        <g>
-          <path d="M ${x} ${y+40} Q 512 ${y-10} ${x+w} ${y+40} L ${x+w-40} ${y+92} Q 512 ${y+60} ${x+40} ${y+92} Z"
-                fill="${fill}" stroke="${stroke}" stroke-width="6" />
-          <text x="512" y="${y+72}" text-anchor="middle"
-                font-size="34" font-weight="800" fill="${palette.b}"
-                style="letter-spacing:0.08em;">
-            ${safe}
-          </text>
-        </g>
-      `;
+      return (
+        `<g>` +
+          `<path d="M ${x} ${y+40} Q 512 ${y-10} ${x+w} ${y+40} ` +
+                 `L ${x+w-40} ${y+92} Q 512 ${y+60} ${x+40} ${y+92} Z" ` +
+                `fill="${fill}" stroke="${stroke}" stroke-width="6" />` +
+          `<text x="512" y="${y+72}" text-anchor="middle" ` +
+                `font-size="34" font-weight="800" fill="${palette.b}" ` +
+                `style="letter-spacing:0.08em;">` +
+            `${safe}` +
+          `</text>` +
+        `</g>`
+      );
     }
 
     if(style === "plaque"){
-      return `
-        <g>
-          <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="18"
-                fill="${fill}" stroke="${stroke}" stroke-width="6"/>
-          <text x="512" y="${y+74}" text-anchor="middle"
-                font-size="34" font-weight="900" fill="${palette.b}"
-                style="letter-spacing:0.08em;">
-            ${safe}
-          </text>
-        </g>
-      `;
+      return (
+        `<g>` +
+          `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="18" ` +
+                `fill="${fill}" stroke="${stroke}" stroke-width="6"/>` +
+          `<text x="512" y="${y+74}" text-anchor="middle" ` +
+                `font-size="34" font-weight="900" fill="${palette.b}" ` +
+                `style="letter-spacing:0.08em;">` +
+            `${safe}` +
+          `</text>` +
+        `</g>`
+      );
     }
 
     // scroll
-    return `
-      <g>
-        <path d="M ${x+20} ${y+22} Q ${x} ${y+60} ${x+22} ${y+98} Q ${x+80} ${y+120} ${x+98} ${y+86} Q ${x+112} ${y+58} ${x+90} ${y+34"
-              fill="rgba(255,255,255,0.10)" stroke="${stroke}" stroke-width="6"/>
-        <path d="M ${x+w-20} ${y+22} Q ${x+w} ${y+60} ${x+w-22} ${y+98} Q ${x+w-80} ${y+120} ${x+w-98} ${y+86} Q ${x+w-112} ${y+58} ${x+w-90} ${y+34"
-              fill="rgba(255,255,255,0.10)" stroke="${stroke}" stroke-width="6"/>
-        <rect x="${x+55}" y="${y+20}" width="${w-110}" height="${h-40}" rx="16"
-              fill="${fill}" stroke="${stroke}" stroke-width="6"/>
-        <text x="512" y="${y+74}" text-anchor="middle"
-              font-size="34" font-weight="900" fill="${palette.b}"
-              style="letter-spacing:0.08em;">
-          ${safe}
-        </text>
-      </g>
-    `;
+    return (
+      `<g>` +
+        `<path d="M ${x+20} ${y+22} Q ${x} ${y+60} ${x+22} ${y+98} ` +
+               `Q ${x+80} ${y+120} ${x+98} ${y+86} ` +
+               `Q ${x+112} ${y+58} ${x+90} ${y+34}" ` +
+              `fill="rgba(255,255,255,0.10)" stroke="${stroke}" stroke-width="6"/>` +
+        `<path d="M ${x+w-20} ${y+22} Q ${x+w} ${y+60} ${x+w-22} ${y+98} ` +
+               `Q ${x+w-80} ${y+120} ${x+w-98} ${y+86} ` +
+               `Q ${x+w-112} ${y+58} ${x+w-90} ${y+34}" ` +
+              `fill="rgba(255,255,255,0.10)" stroke="${stroke}" stroke-width="6"/>` +
+        `<rect x="${x+55}" y="${y+20}" width="${w-110}" height="${h-40}" rx="16" ` +
+              `fill="${fill}" stroke="${stroke}" stroke-width="6"/>` +
+        `<text x="512" y="${y+74}" text-anchor="middle" ` +
+              `font-size="34" font-weight="900" fill="${palette.b}" ` +
+              `style="letter-spacing:0.08em;">` +
+          `${safe}` +
+        `</text>` +
+      `</g>`
+    );
   }
 
   // ---------- Download (SVG → PNG transparent) ----------
